@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Assets/style.css">
+    <title>JS Quiz</title>
+</head>
+<body>
+
+
+<div class="timer">Time: <span id="time">0</span></div>
+<div class="scores">View high scores</a></div>
+<!----------------this is the starting point-------->
+    <div class="box">
+            <div id="start-page">
+                <h1>Javascript Quiz Challenge!</h1> 
+                <p>Challenge yourself! Try to answer the following Javascript related quesitons within the time limit. Keep in mind that incorret or skipped answers will penalize your scoretime by ten seconds!</p>
+            
+            
+
+                <div id="start-container" class="start-bt-container"> 
+                 <button id="start-btn">Start</button>
+                </div>
+            </div>
+<!------------------this is the question and answer section----->
+
+        <div id="question-section" class="hide-this">
+            <div id="question">JS Question                
+            </div>
+
+            <div id="answer-choices" class="choices">
+                <button class="answer-btn"> 1. Answer 1</button>
+                <button class="answer-btn"> 2. Answer 2</button>
+                <button class="answer-btn"> 3. Answer 3</button>
+
+            </div>      
+
+        
+        </div>
+
+        <div id="end-screen" class="hide-this">
+        <h2>Complete</h2>
+        <p>Your final score is <span id="final-score"></span>.</p>
+        <p>
+          Enter initials: <input type="text" id="initials" max="2" />
+          <button id="submit">Submit</button>
+        </p>
+      </div>
+            </div>
+
+
+
+
+
+
+
+
+    </div>
+
+    <script src="Assets/script.js"> </script>
+</body>
+</html>
