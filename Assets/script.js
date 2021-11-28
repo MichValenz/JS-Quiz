@@ -32,11 +32,31 @@ let quizQuestions = [
             }
         ]
 
+    },
+
+    {
+        question: 'What are JavaScript Data Types?',
+        answers: [
+            {text: '1. numbers, values, functions', correct: false},
+            {text: '2. numbers and strings', correct: false},
+            {text: '3. numbers, strings, booleans', correct: true}
+        ]
+    },
+
+    {
+        question: 'What is the correct syntax for an array?',
+        answers: [
+            {text: '1. function[]', correct: false},
+            {text: '2. const array_name = [item1, item2,...]', correct: true},
+            {text: '3. var varname()', correct: false}
+        ]
+
+
     }
 ]
 
 //timer
-var time = quizQuestions.length * 40;
+var time = quizQuestions.length * 20;
 var timer;
 //variables
 
@@ -82,8 +102,9 @@ function showQuestion(question) {
 
 function answer(event) {
  const selected = event.target
- const correct =selected.dataset.correct
- 
+ const correct = selected.dataset.correct
+
+
 };
 
 function tickingTime() {
