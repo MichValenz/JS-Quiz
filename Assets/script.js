@@ -9,39 +9,38 @@ WHEN the game is over
 THEN I can save my initials and score*/
 
 
-
-
-
-
 //getting elements
-const startButton = document.getElementById('start-page');
-const questions = document.getElementById('question-section');
-const questionId = document.getElementById('question');
-const answerOptions = document.getElementById('answer-btn');
-const timerEL = document.querySelector("#time");
+let startButton = document.getElementById('start-page');
+let questions = document.getElementById('question-section');
+let questionEl = document.getElementById('question');
+let answerOptions = document.getElementById('answer-choices');
+let timerEL = document.getElementById('time');
 
-//timer
-var time = quizQuestions.length * 15;
-var timer
 
+//quiz questions
 
 let quizQuestions = [
     {
        question: 'What is a classList Property?',
-        choices: [
-            { text: 'The classList property returns the class name(s) of an element, as a DOMTokenList object.', correct: true },
-            { text: 'It is a method that allows you to target objects.', correct: false
+        answers: [
+            { text: '1. The classList property returns the class name(s) of an element, as a DOMTokenList object.', correct: true },
+            { text: '2. It is a method that allows you to target objects.', correct: false
             },
 
-            {text: 'It is a type of loop.', correct: false
+            {text: '3. It is a type of loop.', correct: false
 
             }
         ]
+
     }
 ]
 
+//timer
+var time = quizQuestions.length * 40;
+var timer;
+//variables
 
-startButton.addEventListener('click', startGame);
+let shuffleQuestions, currentQuestion
 
 //WHEN I click the start button
 //THEN a timer starts and I am presented with a question
@@ -50,26 +49,53 @@ startButton.addEventListener('click', startGame);
 function startGame() {
     console.log("started");
     startButton.classList.add('hide-this');
-    let que = actualQuestions[0];
+    shuffleQuestions = quizQuestions.sort(() => Math.random() - .5);
+    currentQuestion = 0
     questions.classList.remove('hide-this');
+
+    //timer
+    timer = setInterval(tickingTime, 1000)
     
     nextQuestion();
 };
 
 function nextQuestion(){
-    showQuestion()
+    
+    showQuestion(shuffleQuestions[currentQuestion])
 };
 
 function showQuestion(question) {
- questionId.innerText = questionId.question
-
+ questionEl.innerText = question.question
+ question.answers.forEach(answer => {
+  const button = document.createElement('button')
+  button.innerText = answer.text
+  button.classList.add('answer-btn')
+  if (answer.correct) {
+      button.dataset.correct = answer.correct
+  }
+  button.addEventListener('click', answer)
+  answerOptions.appendChild(button)
+ })
 
 };
 
 
-
-
-function answer() {
-
-
+function answer(event) {
+ const selected = event.target
+ const correct =selected.dataset.correct
+ 
 };
+
+function tickingTime() {
+    time--;
+    timerEL.textContent = time;
+    if (time <= 0) {
+        endOfQuiz();
+    }
+}
+
+function endOfQuiz(){
+    clearInterval(timer)
+}
+
+startButton.addEventListener('click', startGame);
