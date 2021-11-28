@@ -11,7 +11,7 @@ JS Quiz is a webpage that provides JavaScript related questions as a challenge t
 * Added JS file
 
 ## Links
-* [Link to the deployed website]()
+* [Link to the deployed website](https://michvalenz.github.io/JS-Quiz/)
 * [Link to the code repository](https://github.com/MichValenz/JS-Quiz)
 
 ## Installation
